@@ -1,3 +1,6 @@
+
+This project implement two algorithms : Quadratic sieve and Elliptic curves
+
 /**
 author :- Lucas Magnana
 	- Alban Flandin
