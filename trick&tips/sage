@@ -1,0 +1,71 @@
+	cheat sheet sage
+
+//génère un entier random inférieur à val
+ZZ.random.element(val)
+
+//factorise val
+factor(val)
+
+
+[ list(factor(i)),for i in range (400,410)]
+
+
+
+// afficher les entiers friables à b entre min et max-1
+B = 30
+j = 0
+for i in range(min,max):
+	if list(factor(i))[-1][0] < B:
+		print(i,factor(i))
+		j=j+1
+		print("nbr d'entier B-friable"j)
+
+test en fonction de B et n
+min =2
+max = n
+
+trouver comment estimer B -> générer un courbe
+
+B grand génère une matrice plus grande -> compléxité n³
+
+blas -> algebre lineaire OpenBlas pour le c++
+
+
+sage: j=0
+....: B=10
+....: for i in range(2,190):
+....:     if list(factor(i))[-1][0] < B:
+....:         print(i,factor(i))
+....:         j=j+1
+....: print('nbr dentier B-friable',j)
+
+-----------------------------------------------------------------------------------
+
+//permet de compter le nombre d'entier B-friable entre min et max
+//boucle utilisée pour observer les variations lorsque l'on change B et min/max
+//à executer à la racine de lifprojet
+fichier = open("result/nbFactor", "a")
+n=1659044747
+ min=sqrt(n);
+ max=min+sqrt(n)
+ for B in range(2,100):
+     j=0
+     for i in range(min,max):
+         if list(factor(i))[-1][0] < B:
+             j=j+1
+     print(B,j)
+     result = (B,max-min,j)
+     s = str(result)
+     fichier.write(s+"\n")
+ fichier.close()
+
+
+//dans un autre terminal
+cd tools
+./cleanFile.sh ../result/data200.txt -d
+
+datat200.txt fichier d'output, -d supprime le contenu de l'ancien fichier data200.txt si il existait
+
+
+
+

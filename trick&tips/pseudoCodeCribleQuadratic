@@ -1,0 +1,117 @@
+		Crible Quadratique 
+
+Pseudo code : 
+CribleQuadratique(unsigned_int n){
+	listeInt primeList; 	
+	listeInt bSmoothList;
+	B=30;
+	primeList=eratosthene(B); <- permet de sortir tous les entiers premiers inférieur à B
+	bSmoothList=BSmoothGenerator(primeList, n); <- génère les entiers au hasard
+	//blas <- algèbre linéaire
+}
+
+MPI <- parallélisation
+
+int isBsmooth(int test, vector<int> prime, vector<pair<int prime, int exposant>> &* contextPrime){
+	test2=test;
+	int j=0;
+	foreach(prime<=primeList){
+		contextPrime[j]->first=prime;
+		int i=0;
+		while(modulo(test2,prime)!=0){
+			test2=test2/prime;
+			contextePrime[i]->second()++;
+			i++;
+		}
+		if(test2==0)break;
+		j++;
+	}
+	return test2==0;
+}
+
+//range==ecart autour de racine(n)
+//exemple range=15 et n=200 on cherchera des valeur B-friable entre 195 et 215
+
+bSmoothList bSmootGenerator(int n, int listSize, int range){
+	set<int> tested;
+	set<pair<int bSmoothNumber,<pair<int prime, int exposant>> bSmoothList;
+	int currentSize=0;
+	
+	tested.insert(1); //on est sur de pas tester 1 pour éviter boucle infinis dans isBsmooth
+	tested.insert(n);
+
+	int test=1;
+	int i=0;
+	while(currentSize < listSize+10){ //+10 pour éviter toute redondance lié aux valeurs générées.
+
+		while((tested.find(test))!=tested.end()){ //pour éviter de retester des valeurs déjà tester
+			test=generateInteger(sqrt(n),range); <- aoptimiser éviter embouteillage
+		}
+		
+		vector<pair<int prime, int exposant>> contextPrime;
+
+		if(isBsmooth(test,listSize,&contextPrime)){
+			bSmoothList[i]->first=test;
+			bSmoothList[i]->second=contextPrime;
+			currentSize++;
+		}
+		tested.insert(test);
+	}
+
+	return bSmoothList;
+
+}
+
+
+
+int generateInteger(int src,int range){
+	srand (time(NULL))
+	int min = abs(src-range);
+	int max = abs(src+range);
+	return rand() % (max-min) + min;
+}
+
+
+//src="https://www.scriptol.fr/programmation/crible.php"
+/*
+Construire une liste de tous les entiers supérieurs à 1 et inférieurs ou égal à n. 
+Supprimer les multiples de tous les premiers inférieurs ou égal à la racine carrée de n, 
+ensuite, les nombres qui restent sont premiers. 
+*/
+vector<int> eratosthene(int B){
+
+  vector<int> all(top);
+  int idx = 0;
+	
+  std::cout << "1 ";
+	
+  int prime = 3;
+	
+  while(prime <= top)
+  {
+    for(int x = 0; x < top; x++)
+    {
+      if(all[x] == prime) goto skip; 
+    }
+
+    std::cout << prime << " ";
+    int j = prime;
+    while(j <= (top / prime))
+    {
+      all[idx++] = prime * j;
+      j += 1;
+    }
+
+skip:	
+    prime+=2;
+  }
+  std::cout << std::endl;
+  return;
+
+
+}
+
+
+
+
+

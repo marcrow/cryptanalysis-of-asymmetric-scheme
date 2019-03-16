@@ -1,0 +1,51 @@
+Comment installer Blas + Lapack
+
+technique 1 :
+sudo apt-get install liblapacke-dev 
+
+technique 2 :
+1) aller sur le site : http://www.netlib.org/lapack/#_lapack_version_3_8_0_2
+2) télécharger : LAPACK, version 3.8.0
+3) tar zxvf lapack-3.8.0.gz
+4) cd lapack-3.8.0
+alors maintenant ca devient très intuitif...
+5) cp make.inc.example make.inc
+6) make blaslib
+7) make lapacklib <- assez long
+8) sudo ln -s librefblas.a /usr/local/lib/libblas.a
+9) sudo ln -s liblapack.a /usr/local/lib/liblapack.a
+10) sudo apt-get install liblapacke-dev <- si c'est toujours pas suffisant
+
+
+ensuite dans notre cpp on include 
+#include"lapacke.h"
+puis pour compiler :
+g++ test.cpp -llapack
+
+
+
+//utiisation LAPACK
+
+
+char    TRANS = 'N'; <- spécifie le type d'équation N=non transposé
+int     INFO=3; =0 opération réussi <0 le ieme argument est mauvais
+int     LDA = 3; <- dimension de la matrice A en nb ligne ?
+int     LDB = 3; <- dimension de la matrice B en nb ligne ?
+int     N = 3; <- nombre de colonne de la ligne A
+int     NRHS = 1; <- nb colonne de la matrice B
+int     IPIV[4] ;
+
+double  A[9] =
+{
+1, 2, 3,
+2, 3, 4,
+3, 4, 1
+};
+
+double B[3] =
+{
+-4,
+-1,
+-2
+};
+

@@ -1,0 +1,11 @@
+
+
+-Influence du choix de B et de l'écart entre min et max
+	Après avoir réalisé des tests en faisant varié les valeurs de B de 5 à 49 et de n de 200 à 1000
+	Le graphique généré à partir de ces valeurs grâce au script ./tools/graphGen.sh montre bien l'influence de B et de n
+
+	Le nombre d'entier B-friable est linaire selon n si B est très petit 5<B<20
+	Cependant plus B est grand plus le nombre d'entier B-friable explose.
+
+a faire
+nbr de B-smooth disviser par le nombre total de nombre (n)
